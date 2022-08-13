@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import axios from "axios";
+import List from "../components/List";
 
 export const getStaticProps = async () => {
   try {
@@ -10,7 +11,7 @@ export const getStaticProps = async () => {
     const data = await res.data.result;
     return {
       props: {
-        tokens: data ,
+        tokens: data,
       },
     };
   } catch (err) {
@@ -18,27 +19,13 @@ export const getStaticProps = async () => {
   }
 };
 
-export default function Home({tokens}) {
-  const listOfTokens = tokens.map((token)=>{
-    return(
-      <div key={token.id}>
-        <Link href={`tokens/${token.id}`}>
-          <a>
-            <img src={token.metadata.image} alt={token.name}/>
-          </a>
-        </Link>
-      </div>
-    )
-  });
-
+export default function Home({ tokens }) {
   return (
     <div className="w-screen">
       <Head>
         <title>List of NFT Tokens</title>
       </Head>
-      <div className="flex flex-wrap">
-        {listOfTokens}
-      </div>
+      <List tokens={tokens} />
     </div>
   );
 }
