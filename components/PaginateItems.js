@@ -1,30 +1,9 @@
-import { useState, useEffect } from 'react';
-import ReactPaginate from 'react-paginate';
-import ListElement from './ListElement';
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import Item from "./Item";
+import Items from "./Items";
 
-function Items({ currentItems }) {
-  return (
-    <div className='w-4/5 mx-auto flex justify-evenly'>
-      {currentItems &&
-        currentItems.map((item) => (
-          <div className=''>
-            {item}
-          </div>
-        ))}
-    </div>
-  );
-}
- 
-function PaginatedItems({ tokens, itemsPerPage }) {
-  const items = tokens.map((token) => {
-    return (
-      <div key={token.id}>
-        <a>
-          <ListElement token={token} />
-        </a>
-      </div>
-    );
-  });
+const PaginatedItems = ({ tokens, itemsPerPage }) => {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -35,7 +14,7 @@ function PaginatedItems({ tokens, itemsPerPage }) {
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
- 
+
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
     console.log(
@@ -43,22 +22,38 @@ function PaginatedItems({ tokens, itemsPerPage }) {
     );
     setItemOffset(newOffset);
   };
- 
+
+  const items = tokens.map((token) => {
+    return (
+      <div className="h-full" key={token.id}>
+        <a>
+          <Item token={token} />
+        </a>
+      </div>
+    );
+  });
+
   return (
-    <div>
-      <Items className="" currentItems={currentItems} />
-      <ReactPaginate
-        className='flex justify-center gap-5 border'
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
+    <div className="flex flex-col justify-center items-center h-full gap-5" >
+      <Items currentItems={currentItems} />
+        <ReactPaginate
+          className="flex justify-center w-full text-center"
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          breakClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+          pageClassName=" border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+          previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12" 
+          nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+          activeClassName="bg-blue-700 hover:bg-blue-800 text-white"
+        />
+      
     </div>
   );
-}
- 
+};
+
 export default PaginatedItems;
