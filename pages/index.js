@@ -24,8 +24,8 @@ export default function Home({ tokens }) {
       <Head>
         <title>List of NFT Tokens</title>
       </Head>
-      <div className="bg-slate-400 2xl:w-4/6 lg:w-[95vw] md:rounded-3xl md:border-4 custom border-slate-200 lg:h-3/4 2xl:h-2/3">
-        <PaginatedItems tokens={tokens} itemsPerPage={3} />
+      <div className="bg-slate-400 2xl:w-4/6 lg:w-[95vw] md:rounded-3xl md:border-4 custom border-slate-200 2xl:h-[95%]">
+        <PaginatedItems tokens={tokens} itemsPerPage={10} />
       </div>
     </div>
   );

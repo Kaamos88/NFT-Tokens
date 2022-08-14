@@ -25,7 +25,7 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
 
   const items = tokens.map((token) => {
     return (
-      <div className="h-full" key={token.id}>
+      <div key={token.id}>
         <a>
           <Item token={token} />
         </a>
@@ -34,24 +34,23 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
   });
 
   return (
-    <div className="flex flex-col justify-center items-center h-full gap-5" >
+    <div className="flex flex-col justify-center items-center">
       <Items currentItems={currentItems} />
-        <ReactPaginate
-          className="flex justify-center w-full text-center"
-          breakLabel="..."
-          nextLabel=">"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel="<"
-          renderOnZeroPageCount={null}
-          breakClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
-          pageClassName=" border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
-          previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-l-xl" 
-          nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-r-xl"
-          activeClassName="bg-blue-700 hover:bg-blue-800 text-white"
-        />
-      
+      <ReactPaginate
+        className="flex justify-center w-full text-center"
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        breakClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+        pageClassName=" border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+        previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-l-xl"
+        nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-r-xl"
+        activeClassName="bg-blue-700 hover:bg-blue-800 text-white"
+      />
     </div>
   );
 };

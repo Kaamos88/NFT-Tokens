@@ -1,8 +1,7 @@
 const Items = ({ currentItems }) => {
   return (
-    <div className="w-4/5 mx-auto h-4/5 flex flex-col lg:flex-row justify-evenly gap-5">
-      {currentItems &&
-        currentItems.map((item) => <div className="h-full">{item}</div>)}
+    <div className="p-3 h-full sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      {currentItems && currentItems.map((item) => <>{item}</>)}
     </div>
   );
 };
