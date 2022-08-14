@@ -20,11 +20,11 @@ export const getStaticProps = async () => {
 
 export default function Home({ tokens }) {
   return (
-    <div className="xl:flex xl:justify-center xl:items-center bg-slate-300 xl:h-screen w-screen">
+    <div className="md:flex md:justify-center md:items-center bg-slate-300 lg:h-screen w-screen">
       <Head>
         <title>List of NFT Tokens</title>
       </Head>
-      <div className="bg-slate-400 xl:w-4/6 xl:rounded-3xl xl:border-4 custom border-slate-200 xl:h-2/3">
+      <div className="bg-slate-400 2xl:w-4/6 lg:w-[95vw] md:rounded-3xl md:border-4 custom border-slate-200 lg:h-3/4 2xl:h-2/3">
         <PaginatedItems tokens={tokens} itemsPerPage={3} />
       </div>
     </div>

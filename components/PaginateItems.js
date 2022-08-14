@@ -47,8 +47,8 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
           renderOnZeroPageCount={null}
           breakClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
           pageClassName=" border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
-          previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12" 
-          nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
+          previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-l-xl" 
+          nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-r-xl"
           activeClassName="bg-blue-700 hover:bg-blue-800 text-white"
         />
       
