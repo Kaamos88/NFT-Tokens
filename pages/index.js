@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import axios from "axios";
-import List from "../components/List";
+import PaginatedItems from "../components/PaginateItems";
 
 export const getStaticProps = async () => {
   try {
@@ -25,7 +24,7 @@ export default function Home({ tokens }) {
       <Head>
         <title>List of NFT Tokens</title>
       </Head>
-      <List tokens={tokens} />
+      <PaginatedItems tokens={tokens} itemsPerPage={4} />
     </div>
   );
 }

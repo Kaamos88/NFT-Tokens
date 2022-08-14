@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import List from "../components/List";
+import PaginatedItems from "../components/PaginateItems";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
