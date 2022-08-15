@@ -1,6 +1,6 @@
 const Spinner = () => {
   return (
-    <div className="w-full">
+    <div id="spinner" className="w-full">
       <div className="lds-ripple">
         <div></div>
         <div></div>

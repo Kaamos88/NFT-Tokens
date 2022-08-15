@@ -39,8 +39,8 @@ const Item = ({ token }) => {
         onRequestClose={closeModal}
         contentLabel={token.name}
       >
-        <div className="bg-black border-4 xl:h-auto border-gray-500 rounded-3xl custom">
-          <div className="flex flex-col h-full w-96 justify-center items-center">
+        <div id="Modal-pop-up" className="bg-black border-4 xl:h-auto border-gray-500 rounded-3xl custom p-1">
+          <div id={token.id} className="flex flex-col h-full w-96 justify-center items-center">
             <div className="flex">
               <div className="w-1/2">
                 <img src={token.metadata.image} alt={token.name} />

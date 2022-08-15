@@ -25,7 +25,7 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
 
   const items = tokens.map((token) => {
     return (
-      <div key={token.id}>
+      <div id={token.id} key={token.id}>
         <a>
           <Item token={token} />
         </a>
@@ -34,7 +34,7 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
   });
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div id="tokens_list" className="flex flex-col justify-center items-center">
       <Items currentItems={currentItems} />
       <ReactPaginate
         className="flex justify-center w-full text-center"
@@ -49,7 +49,7 @@ const PaginatedItems = ({ tokens, itemsPerPage }) => {
         pageClassName=" border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12"
         previousClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-l-xl"
         nextClassName="border border-slate-600 bg-slate-300 hover:bg-slate-400 w-12 rounded-r-xl"
-        activeClassName="bg-blue-700 hover:bg-blue-800 text-white"
+        activeClassName="bg-blue-800 hover:bg-blue-600 text-white"
       />
     </div>
   );
